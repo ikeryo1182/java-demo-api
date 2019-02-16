@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.entity.PersonEntity;
 import com.example.demo.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,9 +14,9 @@ import java.util.List;
 public class PersonService {
 
     @Autowired
-    PersonRepository personRepository;
+    PersonRepository repository;
 
-    public List<PersonEntity> findAll() {
-        return personRepository.findAll();
+    public List<PersonEntity> findAll(){
+        return repository.findAll(new Sort(Sort.Direction.ASC,"id"));
     }
 }

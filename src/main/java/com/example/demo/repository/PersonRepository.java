@@ -1,15 +1,10 @@
 package com.example.demo.repository;
 
 import com.example.demo.entity.PersonEntity;
-import org.seasar.doma.Dao;
-import org.seasar.doma.Select;
-import org.seasar.doma.boot.ConfigAutowireable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+@Repository
+public interface PersonRepository extends JpaRepository<PersonEntity,Integer> {
 
-@Dao
-@ConfigAutowireable
-public interface PersonRepository {
-    @Select
-    List<PersonEntity> findAll();
 }
