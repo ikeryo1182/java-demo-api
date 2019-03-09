@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.demo.api.v1.entity;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_seq")
     @SequenceGenerator(name = "id_seq", sequenceName = "id_seq", allocationSize = 1)
-    private int id;
+    private Long id;
 
     @Column(name="name")
     private String name;

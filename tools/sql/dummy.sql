@@ -1,5 +1,5 @@
 INSERT INTO account VALUES
-(1,'demoA',19),
-(2,'demoB',24),
-(3,'demoC',14)
+(nextval('id_seq'),'demoA',19),
+(nextval('id_seq'),'demoB',24),
+(nextval('id_seq'),'demoC',14)
 ;
