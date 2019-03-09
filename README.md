@@ -20,5 +20,5 @@ $ curl -X DELETE http://localhost:8080/account -d '{"id": 1, "name":"demo", "age
 ## Build & Run
 ```
 $ ./gradlew clean build
-$ java -jar build/demo-versions-SNAPSHOT.jar
+$ java -jar build/demo-versions.jar
 ```
