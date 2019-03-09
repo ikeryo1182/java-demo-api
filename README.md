@@ -1,6 +1,6 @@
 ## Development
  
-### bootRun
+### Development Server
 ```$xslt
 $ ./gradlew bootRun
 ```
@@ -13,11 +13,12 @@ $ curl -X PUT http://localhost:8080/account -d '{"id": 1, "name":"demo", "age": 
 $ curl -X DELETE http://localhost:8080/account -d '{"id": 1, "name":"demo", "age": 12}' -H "Content-Type: application/json"
 ```
 
-## Build
+## Production
+### Build
 ```$xslt
 $ ./gradlew clean build
 ```
-s
+
 ### Build image
 ```$xslt
 # Build
@@ -54,7 +55,7 @@ $ kubectl expose deployment demo-app --type=LoadBalancer --port=8080
 $ kubectl get svc demo-app
 ```
 
-### Deleteing
+### Delete
 
 ```$xslt
 $ kubectl delete -f specs/spring-boot.yml
