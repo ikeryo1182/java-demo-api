@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.PersonEntity;
-import com.example.demo.repository.PersonRepository;
+import com.example.demo.entity.AccountEntity;
+import com.example.demo.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,12 @@ import java.util.List;
 
 @Service
 @Transactional
-public class PersonService {
+public class AccountService {
 
     @Autowired
-    PersonRepository repository;
+    AccountRepository repository;
 
-    public List<PersonEntity> findAll(){
+    public List<AccountEntity> findAll(){
         return repository.findAll(new Sort(Sort.Direction.ASC,"id"));
     }
 }
