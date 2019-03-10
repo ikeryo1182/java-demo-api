@@ -19,47 +19,31 @@ $ curl -X DELETE http://localhost:8080/account -d '{"id": 1, "name":"demo", "age
 $ ./gradlew clean build
 ```
 
-### Build image
+### Build Image
 ```$xslt
 # Build
-$ docker build -t <docker-hub-account>/demo:v1 --build-arg VERSIONS='0.1.0' .
+$ docker build -t <docker-hub-account>/demo-api:v1 --build-arg VERSIONS='0.1.0' .
 
 # Push
-$ docker push <docker-hub-account>/demo:v1
+$ docker push <docker-hub-account>/demo-api:v1
 ```
 
-### Minikube
+### Kubernetes
+### Create Deployment & Service
 ```$xslt
-# Setup
-$ brew install virtualbox
-$ brew install minikube
-$ minikube start
-
-# Deployment
 $ kubectl create -f specs/postgres.yml
 $ kubectl create configmap hostname-config --from-literal=postgres_host=$(kubectl get svc postgres -o jsonpath="{.spec.clusterIP}")
 $ kubectl create -f specs/spring-boot.yml
-$ kubectl expose deployment demo-app --type=NodePort --port=8080
-
-$ minikube service demo-app --url
 ```
 
-### AWS, GCP and so on
-
+if using minikube, you can check url and access.
 ```$xslt
-# Deployment
-$ kubectl create -f specs/postgres.yml
-$ kubectl create configmap hostname-config --from-literal=postgres_host=$(kubectl get svc postgres -o jsonpath="{.spec.clusterIP}")
-$ kubectl create -f specs/spring-boot.yml
-$ kubectl expose deployment demo-app --type=LoadBalancer --port=8080
-$ kubectl get svc demo-app
+$ minikube service demo-api-svc --url
 ```
 
-### Delete
-
+#### Delete Deployment & Service
 ```$xslt
 $ kubectl delete -f specs/spring-boot.yml
 $ kubectl delete -f specs/postgres.yml
-$ kubectl delete svc demo-app
 $ kubectl delete cm hostname-config
 ```
