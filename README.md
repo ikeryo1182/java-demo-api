@@ -22,10 +22,10 @@ $ ./gradlew clean build
 ### Build Image
 ```$xslt
 # Build
-$ docker build -t <docker-hub-account>/demo-api:v1 --build-arg VERSIONS='0.1.0' .
+$ docker build -t <docker-hub-account>/demo-api:v0.1.0 --build-arg VERSIONS='0.1.0' .
 
 # Push
-$ docker push <docker-hub-account>/demo-api:v1
+$ docker push <docker-hub-account>/demo-api:v0.1.0
 ```
 
 ### Kubernetes

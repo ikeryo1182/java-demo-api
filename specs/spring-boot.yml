@@ -29,7 +29,7 @@ spec:
                 configMapKeyRef:
                   name: hostname-config
                   key: postgres_host
-          image: <docker-hub-account>/demo-api:v1
+          image: <docker-hub-account>/demo-api:v0.1.0
           ports:
             - containerPort: 80
 
