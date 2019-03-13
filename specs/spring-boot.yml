@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-api
@@ -32,6 +32,7 @@ spec:
           image: <docker-hub-account>/demo-api:v0.1.0
           ports:
             - containerPort: 80
+            - containerPort: 443
 
 ---
 
@@ -45,5 +46,9 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 80
+      name: http
+    - protocol: TCP
+      port: 443
+      name: https
   selector:
     app: demo-api
